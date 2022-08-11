@@ -17,7 +17,7 @@ public class SupplierService {
         return supplierRepository.findAll();
     }
 
-    public Supplier createSupplier(@RequestBody Supplier param){
+    public Supplier createSupplier(Supplier param){
         return supplierRepository.save(param);
     }
 
