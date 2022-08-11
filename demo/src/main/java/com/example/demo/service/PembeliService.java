@@ -18,7 +18,7 @@ public class PembeliService {
     }
 
     public Pembeli findById(Integer id){
-        return pembeliRepository.getById(id);
+        return pembeliRepository.findById(id).orElseThrow(null);
     }
 
     public Pembeli createPembeli(Pembeli pembeli){
