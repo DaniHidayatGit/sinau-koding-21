@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-import com.example.demo.models.Barang;
 import com.example.demo.models.Supplier;
 import com.example.demo.models.dto.SupplierDto;
 import com.example.demo.service.SupplierService;

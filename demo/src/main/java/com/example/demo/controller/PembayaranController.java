@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-import com.example.demo.models.Pembayaran;
 import com.example.demo.models.dto.PembayaranDto;
 import com.example.demo.service.PembayaranService;
 import org.springframework.beans.factory.annotation.Autowired;

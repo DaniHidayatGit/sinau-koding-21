@@ -1,6 +1,5 @@
 package com.example.demo.service;
 
-import com.example.demo.models.Pembayaran;
 import com.example.demo.models.dto.PembayaranDto;
 import com.example.demo.models.mapper.PembayaranMapper;
 import com.example.demo.repository.PembayaranRepository;
