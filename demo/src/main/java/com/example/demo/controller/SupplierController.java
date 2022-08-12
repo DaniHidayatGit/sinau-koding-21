@@ -1,11 +1,11 @@
 package com.example.demo.controller;
 
+import com.example.demo.common.Response;
 import com.example.demo.models.Supplier;
 import com.example.demo.models.dto.SupplierDto;
 import com.example.demo.service.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -15,34 +15,46 @@ public class SupplierController {
     SupplierService supplierService;
 
     @GetMapping
-    public ResponseEntity<?> findAllBarang(){
-        return new ResponseEntity<>(supplierService.findAll(), HttpStatus.OK);
+    public Response findAllBarang(){
+        return new Response(
+                supplierService.findAll(),
+                supplierService.findAll().size(),
+                HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> findById(@PathVariable Integer id){
-        return new ResponseEntity<>(supplierService.findById(id), HttpStatus.OK);
+    public Response findById(@PathVariable Integer id){
+        return new Response(
+                supplierService.findById(id),
+                "Berhasil ditemukan",
+                HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<?> postBarang(@RequestBody SupplierDto supplier){
-        return new ResponseEntity<>(supplierService.createSupplier(supplier), HttpStatus.OK);
+    public Response postBarang(@RequestBody SupplierDto supplier){
+        return new Response(
+                supplierService.createSupplier(supplier),
+                "Berhasil disimpan",
+                HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> putBarang(@PathVariable Integer id,@RequestBody Supplier supplier){
-        return new ResponseEntity<>(supplierService.updateSupplier(id, supplier), HttpStatus.OK);
+    public Response putBarang(@PathVariable Integer id,@RequestBody Supplier supplier){
+        return new Response(
+                supplierService.updateSupplier(id, supplier),
+                "Berhasil diupdate",
+                HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteBarang(@PathVariable Integer id){
+    public Response deleteBarang(@PathVariable Integer id){
         supplierService.deleteSupplier(id);
-        return new ResponseEntity<>("Berhasil didelete", HttpStatus.OK);
+        return new Response("Berhasil didelete", HttpStatus.OK);
     }
 
     @DeleteMapping("/all")
-    public ResponseEntity<?> deleteAllBarang(){
+    public Response deleteAllBarang(){
         supplierService.deleteAllSupplier();
-        return new ResponseEntity<>("Berhasil delete all", HttpStatus.OK);
+        return new Response("Berhasil delete all", HttpStatus.OK);
     }
 }

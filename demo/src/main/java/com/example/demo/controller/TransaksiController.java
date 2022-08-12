@@ -1,10 +1,10 @@
 package com.example.demo.controller;
 
+import com.example.demo.common.Response;
 import com.example.demo.models.dto.TransaksiDto;
 import com.example.demo.service.TransaksiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -14,17 +14,26 @@ public class TransaksiController {
     TransaksiService transaksiService;
 
     @GetMapping
-    public ResponseEntity<?> findAll(){
-        return new ResponseEntity<>(transaksiService.findAll(), HttpStatus.OK);
+    public Response findAll(){
+        return new Response(
+                transaksiService.findAll(),
+                transaksiService.findAll().size(),
+                HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> findById(@PathVariable Integer id){
-        return new ResponseEntity<>(transaksiService.getById(id), HttpStatus.OK);
+    public Response findById(@PathVariable Integer id){
+        return new Response(
+                transaksiService.getById(id),
+                "Data ditemukan",
+                HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<?> createTransaksi(@RequestBody TransaksiDto transaksi){
-        return new ResponseEntity<>(transaksiService.createTransaksi(transaksi), HttpStatus.OK);
+    public Response createTransaksi(@RequestBody TransaksiDto transaksi){
+        return new Response(
+                transaksiService.createTransaksi(transaksi),
+                "Berhasil disimpan",
+                HttpStatus.OK);
     }
 }
