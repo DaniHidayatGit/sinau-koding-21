@@ -11,5 +11,5 @@ public class PembeliDto {
     private String nama_pembeli;
     private String no_telp;
     private String alamat;
-    private TransaksiDto transaksiDto;
+    private TransaksiDto transaksi;
 }

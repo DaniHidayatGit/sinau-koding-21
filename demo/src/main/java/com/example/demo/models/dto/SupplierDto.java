@@ -11,5 +11,5 @@ public class SupplierDto {
     private String nama_supplier;
     private String no_telp;
     private String alamat;
-    private List<BarangDto> barangListDto;
+    private List<BarangDto> barangList;
 }

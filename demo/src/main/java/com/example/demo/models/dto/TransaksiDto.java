@@ -7,9 +7,9 @@ import lombok.Setter;
 @Setter
 public class TransaksiDto {
     private Integer id;
-    private BarangDto barangDto;
-    private PembeliDto pembeliDto;
+    private BarangDto barang;
+    private PembeliDto pembeli;
     private String tgl_transaksi;
     private String keterangan;
-    private PembayaranDto pembayaranDto;
+    private PembayaranDto pembayaran;
 }

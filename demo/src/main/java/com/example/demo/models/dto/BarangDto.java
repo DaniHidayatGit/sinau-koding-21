@@ -10,5 +10,5 @@ public class BarangDto {
     private String nama_barang;
     private Double harga;
     private Integer stok;
-    private SupplierDto supplierDto;
+    private SupplierDto supplier;
 }
